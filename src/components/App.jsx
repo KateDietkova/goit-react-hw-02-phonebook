@@ -4,7 +4,6 @@ import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { nanoid } from 'nanoid';
 import { Box } from './Box/Box'; 
-import { GlobalStyle } from './GlobalStyle/GlobalStyle';
 
 export class App extends Component {
   state = {
@@ -56,7 +55,6 @@ export class App extends Component {
     const deleteContact = this.deleteContact;
     return (
       <Box display="flex" flexDirection="column" alignItems="center" pt="20px">
-        <GlobalStyle />
         <Box
           display="flex"
           flexDirection="column"
