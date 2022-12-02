@@ -14,11 +14,10 @@ export class App extends Component {
   addContact = contact => {
     let isName = false;
     const { contacts } = this.state;
-    contacts.map(({ name }) => {
+    contacts.forEach(({ name }) => {
       if (contact.name === name) {
         alert(`${contact.name} is already in contacts`);
         isName = true;
-        return;
       }
     });
     if (!isName) {
