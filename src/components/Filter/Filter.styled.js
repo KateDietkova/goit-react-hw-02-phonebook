@@ -12,4 +12,5 @@ export const LabelFilter = styled.label`
   flex-direction: column;
   gap: 10px;
   align-items: center;
+  margin-bottom: 15px;
 `;

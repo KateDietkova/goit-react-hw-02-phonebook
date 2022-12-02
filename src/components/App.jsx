@@ -4,6 +4,7 @@ import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { nanoid } from 'nanoid';
 import { Box } from './Box/Box'; 
+import { GlobalStyle } from './GlobalStyle/GlobalStyle';
 
 export class App extends Component {
   state = {
@@ -54,16 +55,26 @@ export class App extends Component {
     const filterContacts = this.visibleContacts();
     const deleteContact = this.deleteContact;
     return (
-      <Box display="flex" flexDirection="column" alignItems="center">
-        <h1>Phonebook</h1>
-        <ContactForm addContact={this.addContact} />
-
-        <h2>Contacts</h2>
-        <Filter onSearch={changeFilter} value={filter} />
-        <ContactList
-          contacts={filterContacts}
-          onDeleteContact={deleteContact}
-        />
+      <Box display="flex" flexDirection="column" alignItems="center" pt="20px">
+        <GlobalStyle />
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          p="10px"
+          mb="20px"
+        >
+          <h1>Phonebook</h1>
+          <ContactForm addContact={this.addContact} />
+        </Box>
+        <Box display="flex" flexDirection="column" alignItems="center" p="10px">
+          <h2>Contacts</h2>
+          <Filter onSearch={changeFilter} value={filter} />
+          <ContactList
+            contacts={filterContacts}
+            onDeleteContact={deleteContact}
+          />
+        </Box>
       </Box>
     );
   }
