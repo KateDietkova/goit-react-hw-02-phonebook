@@ -50,7 +50,7 @@ export class App extends Component {
   }
 
   render() {
-    const { filter } = this.state;
+    const { contacts, filter } = this.state;
     const changeFilter = this.onChangeFilter;
     const filterContacts = this.visibleContacts();
     const deleteContact = this.deleteContact;
@@ -70,10 +70,12 @@ export class App extends Component {
         <Box display="flex" flexDirection="column" alignItems="center" p="10px">
           <h2>Contacts</h2>
           <Filter onSearch={changeFilter} value={filter} />
-          <ContactList
-            contacts={filterContacts}
-            onDeleteContact={deleteContact}
-          />
+          {contacts.length > 0 && (
+            <ContactList
+              contacts={filterContacts}
+              onDeleteContact={deleteContact}
+            />
+          )}
         </Box>
       </Box>
     );
