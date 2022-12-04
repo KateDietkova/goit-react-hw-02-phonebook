@@ -3,7 +3,7 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { nanoid } from 'nanoid';
-import { Box } from './Box/Box'; 
+import { Box } from './Box/Box';
 
 export class App extends Component {
   state = {
@@ -15,7 +15,7 @@ export class App extends Component {
     let isName = false;
     const { contacts } = this.state;
     contacts.forEach(({ name }) => {
-      if (contact.name === name) {
+      if (contact.name.toLowerCase() === name.toLowerCase()) {
         alert(`${contact.name} is already in contacts`);
         isName = true;
       }
@@ -45,7 +45,7 @@ export class App extends Component {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(({ id }) => id !== contactId),
     }));
-  }
+  };
 
   render() {
     const { contacts, filter } = this.state;
